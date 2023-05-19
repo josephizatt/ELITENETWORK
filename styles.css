@@ -1,0 +1,76 @@
+@keyframes rgb {
+    0% {color: red;}
+    25% {color: yellow;}
+    50% {color: lime;}
+    75% {color: cyan;}
+    100% {color: red;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes flyIn {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+  }
+  
+  body {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #eee;
+    background-color: #000;
+    animation: rgb 5s infinite;
+  }
+  
+  #eliteContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    animation: fadeIn 2s;
+  }
+  
+  .page-title, .section-title {
+    color: #ff0066;
+    text-shadow: 2px 2px 4px #000000;
+    animation: flyIn 2s;
+  }
+  
+  .section-text {
+    margin-bottom: 20px;
+    color: #eee;
+    text-shadow: 1px 1px 2px #000000;
+    animation: fadeIn 2s;
+  }
+  
+  .section-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 20px 5px rgba(255,0,102,0.5);
+    transition: transform .2s;
+    animation: flyIn 2s;
+  }
+  
+  .section-img:hover {
+    transform: scale(1.1);
+  }
+  
+  .cta-button {
+    background-color: #ff0066;
+    color: #fff;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color .3s, transform .3s;
+    animation: rgb 1s infinite, fadeIn 2s;
+  }
+  
+  .cta-button:hover {
+    background-color: #ff3399;
+    transform: scale(1.1);
+  }
+  
