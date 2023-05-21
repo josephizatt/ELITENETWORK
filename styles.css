@@ -1,122 +1,99 @@
+/* Add the following CSS rules */
 body {
-    font-family: 'Roboto Condensed', sans-serif;
-    color: #fff;
-    background-color: #000;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
   }
   
   nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: #000;
     position: sticky;
     top: 0;
-    width: 97%;
     z-index: 1;
-    flex-wrap: wrap;
   }
   
-  .logo {
+  nav a {
     color: #fff;
-    font-size: 1.2em;
     text-decoration: none;
+    padding: 1rem;
   }
   
-  #navInviteButton {
-    color: #ff0066;
-    text-decoration: none;
-    transition: color .3s;
-    white-space: nowrap;
+  section {
+    padding: 4rem 2rem;
+    position: relative;
   }
   
-  #navInviteButton:hover {
-    color: #ff3399;
-  }
-  
-  #heroSection {
-    margin-top: 60px;
-  }
-  
-  .page-title {
-    font-size: 2.5em;
-    text-align: center;
-    margin: 20px 0;
-  }
-  
-  .section-img {
-    display: block;
-    width: 100%;
-    max-width: 540px;
-    height: auto;
-    margin: 20px auto;
-    animation: rgb-blink 2s infinite;
-  }
-  
-  .section-text {
-    text-align: justify;
-    margin: 10px auto;
-    padding: 0 20px;
+  .container {
     max-width: 800px;
+    margin: 0 auto;
   }
   
-  .cta-button {
-    display: block;
-    width: 200px;
-    height: 50px;
-    margin: 20px auto;
-    background-color: #ff0066;
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+  }
+  
+  .hero-content {
+    text-align: center;
     color: #fff;
-    border: none;
-    font-size: 1.2em;
-    text-align: center;
-    line-height: 50px;
-    transition: background-color .3s;
-    white-space: nowrap;
   }
   
-  .cta-button:hover {
-    background-color: #ff3399;
-    cursor: pointer;
+  .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #f00;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
   }
   
-  .section-title {
-    font-size: 2em;
-    text-align: center;
-    margin: 20px 0;
+  .btn:hover {
+    background-color: rgb(
+      Math.floor(Math.random() * 256),
+      Math.floor(Math.random() * 256),
+      Math.floor(Math.random() * 256)
+    );
   }
   
-  @keyframes rgb-blink {
-    0%   {filter: hue-rotate(0deg);}
-    100% {filter: hue-rotate(360deg);}
+  .background-images {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    display: flex;
+    flex-wrap: wrap;
+    animation: parallaxAnimation 20s infinite linear;
+    animation-direction: reverse;
   }
   
-  @media (max-width: 600px) {
-    .page-title, .section-title {
-      font-size: 1.5em;
-    }
+  .background-images img {
+    width: 20%;
+    height: 20%;
+    object-fit: cover;
+    filter: brightness(70%) saturate(100%);
+    transition: filter 0.3s ease;
+  }
   
-    .cta-button {
-      width: 150px;
-      height: 40px;
-      font-size: 1em;
-      line-height: 40px;
-    }
+  .background-images img:hover {
+    filter: brightness(100%) saturate(150%);
+  }
   
-    nav {
-      flex-direction: column;
-      align-items: center;
+  @keyframes parallaxAnimation {
+    0% {
+      transform: translateY(100%);
     }
-  
-    .section-text {
-      max-width: 100%;
-    }
-  
-    .section-img {
-      max-width: 100%;
+    100% {
+      transform: translateY(0%);
     }
   }
   
