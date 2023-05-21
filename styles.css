@@ -1,99 +1,108 @@
 /* Add the following CSS rules */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
 body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Roboto Mono', monospace;
+  color: #fff;
+  background-color: #000;
+}
+
+nav {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 1rem;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+section {
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+h1, h2 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #ff0066;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.background-images {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  display: flex;
+  flex-wrap: wrap;
+  animation: parallaxAnimation 20s infinite linear;
+}
+
+.background-images img {
+  width: 20%;
+  height: 20%;
+  object-fit: cover;
+  filter: brightness(70%) saturate(100%);
+  transition: filter 0.3s ease;
+}
+
+.background-images img:hover {
+  filter: brightness(100%) saturate(150%);
+}
+
+@keyframes parallaxAnimation {
+  0% {
+    transform: translateY(100%);
   }
-  
-  nav {
-    background-color: #000;
-    position: sticky;
-    top: 0;
-    z-index: 1;
+  100% {
+    transform: translateY(0%);
   }
-  
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 1rem;
-  }
-  
-  section {
-    padding: 4rem 2rem;
-    position: relative;
-  }
-  
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: -1;
-  }
-  
-  .hero-content {
-    text-align: center;
-    color: #fff;
-  }
-  
-  .btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background-color: #f00;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn:hover {
-    background-color: rgb(
-      Math.floor(Math.random() * 256),
-      Math.floor(Math.random() * 256),
-      Math.floor(Math.random() * 256)
-    );
-  }
-  
-  .background-images {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-    display: flex;
-    flex-wrap: wrap;
-    animation: parallaxAnimation 20s infinite linear;
-    animation-direction: reverse;
-  }
-  
-  .background-images img {
-    width: 20%;
-    height: 20%;
-    object-fit: cover;
-    filter: brightness(70%) saturate(100%);
-    transition: filter 0.3s ease;
-  }
-  
-  .background-images img:hover {
-    filter: brightness(100%) saturate(150%);
-  }
-  
-  @keyframes parallaxAnimation {
-    0% {
-      transform: translateY(100%);
-    }
-    100% {
-      transform: translateY(0%);
-    }
-  }
-  
+}
