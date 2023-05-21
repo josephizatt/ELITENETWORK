@@ -18,7 +18,8 @@ function getRandomPosition(min, max) {
   
     images.forEach((image, index) => {
       image.style.zIndex = index;
-      image.style.transform = `translateY(${index * 100}%)`;
+      image.style.left = `${getRandomPosition(0, 90)}%`; // Randomize the horizontal position
+      image.style.top = `${index * 100}%`; // This line stacks images below each other
     });
   
     setInterval(() => {
@@ -35,10 +36,10 @@ function getRandomPosition(min, max) {
   
     setInterval(() => {
       images.forEach((image) => {
-        const currentTranslateY = parseFloat(image.style.transform.match(/[-]{0,1}[\d]*[.]{0,1}[\d]+/g)[0]);
-        image.style.transform = `translateY(${(currentTranslateY - 2) % (totalImages * 100)}%)`;
+        const currentTranslateY = parseFloat(image.style.top.match(/[-]{0,1}[\d]*[.]{0,1}[\d]+/g)[0]);
+        image.style.top = `${(currentTranslateY - 0.05) % (totalImages * 100)}%`; // Change the scroll step to a smaller value (0.05)
       });
-    }, 50); // Adjust this value to control the speed of scrolling
+    }, 10); // Increase the frequency of movement
   }
   
   createBackgroundImages();
